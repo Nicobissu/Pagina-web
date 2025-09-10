@@ -7,6 +7,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+
 header,
 footer {
   text-align: center;
@@ -14,24 +15,74 @@ footer {
   background-color: #ffffff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 main {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.documents {
+
+.folders {
   list-style: none;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
 }
-.documents li {
-  margin: 1rem 0;
+
+.folders li {
+  margin: 0;
 }
-.documents a {
-  color: #0066cc;
+
+.folder-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 150px;
+  background-color: #e0e0e0;
+  border-radius: 8px;
   text-decoration: none;
-  border-bottom: 1px solid transparent;
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
 }
-.documents a:hover {
-  border-bottom: 1px solid #0066cc;
+
+.folder-link:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #d5d5d5;
+}
+
+.file-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 0;
+}
+
+.file-item {
+  width: 180px;
+  height: 180px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  padding: 1rem;
+}
+
+.file-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
