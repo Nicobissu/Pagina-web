@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carpeta 1</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header>
+    <h1>Carpeta 1</h1>
+  </header>
+  <main>
+    <div class="file-grid" id="fileGrid"></div>
+  </main>
+  <footer>
+    <p>&copy; 2024 Empresa Ejemplo</p>
+  </footer>
+  <script>
+    fetch('files.json')
+      .then(response => response.json())
+      .then(files => {
+        const grid = document.getElementById('fileGrid');
+        if (files.length === 0) {
+          grid.textContent = 'No hay archivos disponibles.';
+        } else {
+          files.forEach(file => {
+            const link = document.createElement('a');
+            link.href = file.file;
+            link.textContent = file.name;
+            link.className = 'file-item';
+            grid.appendChild(link);
+          });
+        }
+      })
+      .catch(() => {
+        const grid = document.getElementById('fileGrid');
+        grid.textContent = 'No hay archivos disponibles.';
+      });
+  </script>
+</body>
+</html>
